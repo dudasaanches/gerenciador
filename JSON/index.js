@@ -4,8 +4,13 @@ var totalGastos = 0
 var totalReceitas = 0
 
 var form_receita = document.getElementById("form_receita")
-
 var form_gastos = document.getElementById("form_gastos")
+var textoR = document.getElementById("textoR")
+var textoG = document.getElementById("textoG")
+var eqg = document.getElementById("eqg")
+var mR = document.getElementById("mR")
+var result = document.getElementById("result")
+var apagar = document.getElementById("apagar")
 
 
 form_receita.addEventListener('submit', function(event){
@@ -13,7 +18,6 @@ form_receita.addEventListener('submit', function(event){
 
     var nomeR = document.getElementById("nomeR")
     var numR = document.getElementById("numR")
-    var textoR = document.getElementById("textoR")
 
     receitas.push({
         valor: parseFloat(numR.value),
@@ -25,13 +29,14 @@ form_receita.addEventListener('submit', function(event){
     localStorage.setItem("receitas", string)
 
     calcularReceitas()
+    verReceitas()
     
 })
 
 
 function calcularReceitas() {
     var itens = localStorage.getItem("receitas")
-    itens = JSON.parse(itens)
+    itens = JSON.parse(itens) || []
 
     totalReceitas = 0
 
@@ -43,13 +48,11 @@ function calcularReceitas() {
     console.log(totalReceitas)
 }
 
-
 form_gastos.addEventListener('submit', function(event){
     event.preventDefault()
 
     var nomeG = document.getElementById("nomeG")
     var numG = document.getElementById("numG")
-    var textoG = document.getElementById("textoG")
 
     gastos.push({
         valor: parseFloat(numG.value),
@@ -60,21 +63,74 @@ form_gastos.addEventListener('submit', function(event){
     localStorage.setItem("gastos", string)
 
     calcularGastos()
+    verGastos()
 })
 
 function calcularGastos() {
     var itens = localStorage.getItem("gastos")
-    itens = JSON.parse(itens)
+    itens = JSON.parse(itens) || []
+
     totalGastos = 0
 
-    for(gasto of gastos) {
+    for(gasto of itens) {
         totalGastos += gasto.valor
-    }textoG.innerHTML = totalGastos
+    }
+    
+    textoG.innerHTML = totalGastos
     
     console.log(totalGastos)
 }
 
+function verGastos() {
+    var itens = localStorage.getItem("gastos")
+    itens = JSON.parse(itens) || []
 
+    for(gasto of itens) {
+        eqg.innerHTML  += gasto.nome + " = R$" + gasto.valor + "<br>"
+    }
+}
+
+function verReceitas() {
+    var itens = localStorage.getItem("receitas")
+    itens = JSON.parse(itens) || []
+
+    for(receita of itens) {
+        mR.innerHTML += receita.nome + " = R$" + gasto.valor + "<br>"
+    }
+}
+
+const calcDivida = () =>{
+    const d = totalReceitas - totalGastos
+
+    if (d < 0){
+        mensagem = "Você está com dívida"
+    }else{
+        mensagem = "Você não têm dívidas"
+    }
+
+    result.innerHTML = `R$${d} (${mensagem})`
+
+}
+
+apagar.addEventListener("click", function(event){
+    event.preventDefault()
+
+    localStorage.clear()
+
+    receitas = []
+    gastos = []
+    totalGastos = 0
+    totalReceitas = 0
+
+    mR.innerHTML = ""
+    eqg.innerHTML = ""
+    
+
+    calcularReceitas()
+    calcularGastos()
+})
 
 calcularReceitas()
 calcularGastos()
+verGastos()
+verReceitas()
