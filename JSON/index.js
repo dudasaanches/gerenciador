@@ -44,7 +44,7 @@ function calcularReceitas() {
         totalReceitas += receita.valor
     }
     
-    textoR.innerHTML = totalReceitas
+    textoR.innerHTML =  "R$" + totalReceitas
     console.log(totalReceitas)
 }
 
@@ -76,7 +76,7 @@ function calcularGastos() {
         totalGastos += gasto.valor
     }
     
-    textoG.innerHTML = totalGastos
+    textoG.innerHTML = "R$" + totalGastos
     
     console.log(totalGastos)
 }
@@ -84,6 +84,8 @@ function calcularGastos() {
 function verGastos() {
     var itens = localStorage.getItem("gastos")
     itens = JSON.parse(itens) || []
+
+    eqg.innerHTML = ""
 
     for(gasto of itens) {
         eqg.innerHTML  += gasto.nome + " = R$" + gasto.valor + "<br>"
@@ -94,8 +96,10 @@ function verReceitas() {
     var itens = localStorage.getItem("receitas")
     itens = JSON.parse(itens) || []
 
+    mR.innerHTML = ""
+
     for(receita of itens) {
-        mR.innerHTML += receita.nome + " = R$" + gasto.valor + "<br>"
+        mR.innerHTML += receita.nome + " = R$" + receita.valor + "<br>"
     }
 }
 
@@ -124,6 +128,7 @@ apagar.addEventListener("click", function(event){
 
     mR.innerHTML = ""
     eqg.innerHTML = ""
+    result.innerHTML = ""
     
 
     calcularReceitas()

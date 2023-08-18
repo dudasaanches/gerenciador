@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/BoRCELLE (1).png">
     <title>Gerenciador de Orçamento Pessoal</title>
 </head>
 <body>
+    <header>
+        <img src="img/BoRCELLE-removebg-preview.png" alt="">
+        <h1>Gerenciador de Orçamento Pessoal</h1>
+    </header>
 
     <main>
+        <section class="form">
+            <div>
+                <p>Receitas</p>
+                <form action="" id="form_receita">
+                    <input type="text" placeholder="Insira o nome" id="nomeR">
+                    <input type="number" placeholder="Insira o valor" min="0" id="numR">
+                    <button type="submit">Enviar</button>
+                </form>
+                <p id="textoR"></p>
+    
+            </div>
+    
+            <div>
+    
+                <p>Gastos</p>
+                <form action="" id="form_gastos">
+                    <input type="text" placeholder="Insira o nome" id="nomeG">
+                    <input type="number" placeholder="Insira o valor" min="0" id="numG">
+                    <button type="submit">Enviar</button>
+                </form>
+                <p id="textoG"></p>
+    
+            </div>
+        </section>
+        
 
-        <div>
-
-            <p>Receitas</p>
-            <form action="" id="form_receita">
-                <input type="text" placeholder="Insira o nome" id="nomeR">
-                <input type="number" placeholder="Insira o valor" min="0" id="numR">
-                <button type="submit">Enviar</button>
-            </form>
-            <p id="textoR"></p>
-
-        </div>
-
-        <div>
-
-            <p>Gastos</p>
-            <form action="" id="form_gastos">
-                <input type="text" placeholder="Insira o nome" id="nomeG">
-                <input type="number" placeholder="Insira o valor" min="0" id="numG">
-                <button type="submit">Enviar</button>
-            </form>
-            <p id="textoG"></p>
-
-        </div>
-
-        <div>
+        <div class="btn">
 
             <button onclick="calcDivida()">Veja a sua dívida</button>
             <button id="apagar">Apagar o hitórico</button>
@@ -42,20 +49,20 @@
 
         <span id="result"></span>
 
-        <div>
+        <section class="text">
+            <div>
+    
+                <h2>Minhas Receitas</h2>
+                <p id="mR"></p>
+    
+            </div>
+            <div>
 
-            <h2>Em que gastou</h2>
-            <p id="eqg"></p>
-
-        </div>
-
-        <div>
-
-            <h2>Minhas Receitas</h2>
-            <p id="mR"></p>
-
-        </div>
-
+                <h2>Meus Gastos</h2>
+                <p id="eqg"></p>
+    
+            </div>
+        </section>
     </main>
     <script src="index.js"></script>
 </body>
