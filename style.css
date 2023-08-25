@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     transition: all 1s;
+    font-family: 'Inter', sans-serif;
 }
 
 header {
@@ -51,25 +52,19 @@ h1{
     margin: 10px auto;
 }
 
-#form_receita button, #form_gastos button, button{
-    background-color:#77cb9d;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 15px;
-
-}
 
 #form_receita, #form_gastos {
     text-align: center;
 }
 
 .btn{
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
     text-align: center;
-
 }
+
+.divida, .apaga{
+    margin: 10px;
+}
+
 
 p{
     text-align: center;
@@ -91,3 +86,65 @@ p{
     text-align: center;
     padding: 10px;
 }
+
+/* inspired form gumroad website */
+.button {
+    --bg: #6dcf59;
+    --hover-bg: #c0dec7;
+    --hover-text: #6dcf59;
+    color: #fff;
+    border: 1px solid var(--bg);
+    border-radius: 1000px;
+    padding: 20px;
+    background: var(--bg);
+    transition: 0.2s;
+  }
+  
+  .button:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem,-0.25rem);
+    background: var(--hover-bg);
+    box-shadow: 0.25rem 0.25rem var(--bg);
+  }
+  
+  .button:active {
+    transform: translate(0);
+    box-shadow: none;
+  }
+
+  button {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #ffff;
+    z-index: 1;
+    background: #6dcf59;
+    position: relative;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(43, 182, 70, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(43, 182, 70, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #075f0d;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px #075f0d;
+    box-shadow: 4px 8px 19px -3px #075f0d;
+    transition: all 250ms
+   }
+   
+   button:hover {
+    color: #e8e8e8;
+   }
+   
+   button:hover::before {
+    width: 100%;
+   }
