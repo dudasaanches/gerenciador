@@ -1,0 +1,93 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    transition: all 1s;
+}
+
+header {
+    background-color: #c0dec7;
+    padding: 2px;
+    align-items: center;
+    display: flex;
+    justify-content:space-around;
+}
+body{
+    background-color: rgb(250, 242, 232);
+}
+
+header img{
+    width: 200px;
+}
+
+h1{
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    
+}
+
+.text{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+    padding-left: 300px;
+}
+
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#form_receita input, #form_gastos input{
+    display: block; 
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #77cb9d;
+    border-radius: 10px;
+    width: 350px;
+    margin-bottom: 10px;
+    margin: 10px auto;
+}
+
+#form_receita button, #form_gastos button, button{
+    background-color:#77cb9d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+
+}
+
+#form_receita, #form_gastos {
+    text-align: center;
+}
+
+.btn{
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    text-align: center;
+
+}
+
+p{
+    text-align: center;
+    padding: 10px;
+}
+
+#eqg{
+    text-align: left;
+    color: red;
+}
+
+#mR{
+    text-align: left;
+    color: rgb(9, 232, 9);
+}
+ 
+#result {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
