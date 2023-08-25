@@ -139,3 +139,16 @@ calcularReceitas()
 calcularGastos()
 verGastos()
 verReceitas()
+
+//
+
+var btnDalto = document.querySelector(".daltonicoBtn")
+btnDalto.addEventListener("click", function(){
+    var body = document.querySelector("body")
+
+    if(body.classList.contains("dalto")) {
+        body.className = ""
+    } else {
+        body.className = "dalto"
+    }
+})
